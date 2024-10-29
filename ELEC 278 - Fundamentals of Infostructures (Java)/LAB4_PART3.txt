@@ -1,0 +1,6 @@
+Gooman, Nathan Dataset size: 100000
+
+		Random				Ascending			Descending
+Sort		Elapsed Time	Number Swaps	Elapsed Time	Number Swaps	Elapsed Time	Number Swaps
+Quick Sort	2		14599		49		4999		38		4999
+Adj.Quick Sort	0		34172		34		4968		38		5464

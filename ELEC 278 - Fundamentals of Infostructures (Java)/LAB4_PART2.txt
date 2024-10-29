@@ -1,0 +1,12 @@
+Goodman, Nathan Dataset size: 100000
+
+		Random				Ascending			Descending
+Sort		Elapsed Time	Number Swaps	Elapsed Time	Number Swaps	Elapsed Time	Number Swaps
+Bubble Sort	165		6212577		0		0		216		12497500
+Insertion Sort	46		6212577		0		0		105 		12497500
+Heap Sort	0		57128		5		60933		2		53437
+Merge Sort	8		1002		0		0		0		2048
+Quick Sort	2		14599		49		4999		38		4999
+Selection Sort(I) 	31		4999		40		4999		40		4999
+Selection Sort(R) 	31		4999		38		4999		31		4999
+Shell Sort	15 		61213		0		0		0		28780
