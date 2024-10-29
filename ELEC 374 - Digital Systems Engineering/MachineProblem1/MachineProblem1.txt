@@ -1,0 +1,25 @@
+Machine Problem 1:
+
+Write code that can identify:
+-The number of CUDA devices on the GPU
+-The type of CUDA devices on the GPU
+-The clock rate (of the GPU?)
+-Number of streaming multiprocessors (of the GPU?)
+-Number of cores (of the GPU?)
+-Warp size (of the GPU?)
+-Amount of global memory
+-Amount of constant memory
+-Amount of shared memory per block
+-Number of registers available per block (of memory?)
+-Maximum number of threads per block
+-Maximum size of each dimension of a block
+-Maximum size of each dimension of a grid
+
+Resources:
+
+-GPU Server and CUDA Environment Tutorial Guide:
+https://onq.queensu.ca/content/enforced/758443-TestCourse/ELEC374_CUDA_Tutorial-W23.pdf?ou=758443
+-GPU Architectures and Computing (lecture slides)
+https://onq.queensu.ca/d2l/le/content/758443/viewContent/4615074/View
+-Nvidia Cuda C Programming Guide:
+https://docs.nvidia.com/cuda/pdf/CUDA_C_Programming_Guide.pdf

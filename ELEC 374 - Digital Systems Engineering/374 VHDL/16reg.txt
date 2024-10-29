@@ -1,0 +1,91 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity reg32 is
+  port (
+    clk     : in std_logic;
+    reset_n : in std_logic;
+    en      : in std_logic;
+    R0_in      : in std_logic_vector(31 downto 0);
+    R0_out     : out std_logic_vector(31 downto 0);
+    R1_in      : in std_logic_vector(31 downto 0);
+    R1_out     : out std_logic_vector(31 downto 0);
+    R2_in      : in std_logic_vector(31 downto 0);
+    R2_out     : out std_logic_vector(31 downto 0);
+    R3_in      : in std_logic_vector(31 downto 0);
+    R3_out     : out std_logic_vector(31 downto 0);
+    R4_in      : in std_logic_vector(31 downto 0);
+    R4_out     : out std_logic_vector(31 downto 0);
+    R5_in      : in std_logic_vector(31 downto 0);
+    R5_out     : out std_logic_vector(31 downto 0);
+    R6_in      : in std_logic_vector(31 downto 0);
+    R6_out     : out std_logic_vector(31 downto 0);
+    R7_in      : in std_logic_vector(31 downto 0);
+    R7_out     : out std_logic_vector(31 downto 0);
+    R8_in      : in std_logic_vector(31 downto 0);
+    R8_out     : out std_logic_vector(31 downto 0);
+    R9_in      : in std_logic_vector(31 downto 0);
+    R9_out     : out std_logic_vector(31 downto 0);
+    R10_in      : in std_logic_vector(31 downto 0);
+    R10_out     : out std_logic_vector(31 downto 0);
+    R11_in      : in std_logic_vector(31 downto 0);
+    R11_out     : out std_logic_vector(31 downto 0);
+    R12_in      : in std_logic_vector(31 downto 0);
+    R12_out     : out std_logic_vector(31 downto 0);
+    R13_in      : in std_logic_vector(31 downto 0);
+    R13_out     : out std_logic_vector(31 downto 0);
+    R14_in      : in std_logic_vector(31 downto 0);
+    R14_out     : out std_logic_vector(31 downto 0);
+    R15_in      : in std_logic_vector(31 downto 0);
+    R15_out     : out std_logic_vector(31 downto 0);
+    Address	: in std_logic_vector(3 downto 0); --See if you need to change number of address bits
+  );
+end entity;
+
+-- ------------------------------------------------------
+
+architecture behavior of reg32 is
+begin
+  process (clk, reset_n, Address)
+    begin
+      if (reset_n = '0') then
+        q <= (others => '0');
+      elsif (rising_edge(clk)) then
+        if (en = '1') then
+          case Address is
+            when "0000" =>
+		R0_out <= R0_in;
+	    when "0001" =>
+		R1_out <= R1_in;
+	    when "0010" =>
+		R2_out <= R2_in;
+	    when "0011" =>
+		R3_out <= R3_in;
+	    when "0100" =>
+		R4_out <= R4_in;
+	    when "0101" =>
+		R5_out <= R5_in;
+	    when "0110" =>
+		R6_out <= R6_in;
+	    when "0111" =>
+		R7_out <= R7_in;
+	    when "1000" =>
+		R8_out <= R8_in;
+	    when "1001" =>
+		R9_out <= R9_in;
+	    when "1010" =>
+		R10_out <= R10_in;
+	    when "1011" =>
+		R11_out <= R11_in;
+	    when "1100" =>
+		R12_out <= R12_in;
+	    when "1101" =>
+		R13_out <= R13_in;
+	    when "1110" =>
+		R14_out <= R14_in;
+	    when "1111" =>
+		R15_out <= R15_in;
+        end if;
+      end if;
+    end process;  
+end architecture;
