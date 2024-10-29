@@ -1,0 +1,16 @@
+Today, -21°, -28°, AM Snow Showers, 43%, NW, 25
+Sat 04, -6°, -7°, PM Light Snow, 73%, S, 23
+Sun 05, 3°, -4°, PM Rain/Snow, 73%, SW, 30
+Mon 06, -2°, -8°, Partly Cloudy, 19%, NNE, 13
+Tue 07, 5°, 0°, Rain, 91%, S, 31
+Wed 08, 2°, -2°, Partly Cloudy, 12%, WSW, 17
+Thu 09, 4°, 2°, Showers, 70%, S, 13
+Fri 10, 4°, -4°, Rain/Snow Showers, 58%, SW, 22
+Sat 11, -2°, -6°, Snow Showers, 58%, NW, 17
+Sun 12, -3°, -5°, AM Snow Showers, 35%, WNW, 19
+Mon 13, 1°, -2°, Mostly Cloudy, 24%, SW, 19
+Tue 14, 3°, -1°, Rain/Snow, 58%, SSW, 20
+Wed 15, 2°, -5°, Snow Showers, 58%, WSW, 20
+Thu 16, 1°, -3°, Snow Showers, 58%, WSW, 18
+Fri 17, 1°, -6°, Snow Showers, 58%, WSW, 20
+
