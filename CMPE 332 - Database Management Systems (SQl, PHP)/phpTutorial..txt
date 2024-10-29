@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vet Clinic</title>
+</head>
+<body>
+<!-- Attaching a php file (containing a php tag) -->
+<?php
+include 'connectdb.php';
+?>
+    <h1>Welcome to the Vet Clinic</h1>
+    <h2>Pets we look after</h2>
+
+<!-- Using php to make SQL query and generate HTML -->
+<?php
+$result = $connection->query("
+	select fname, lname, petname from pet left join owner on pet.ownerid = owner.ownerid
+");
+echo "<ol>";
+while ($row = $result->fetch()) {
+	echo "<li>";
+	echo $row["fname"]." ".$row["lname"]." - ".$row["petname"]."</li>";
+}
+echo "</ol>";
+?>
+    <ol>
+        <li>Dogs</li>
+        <li>Cats</li>
+        <li>Guinea Pigs</li>
+       <li>Birds</li>
+    </ol>
+</body>
+</html>
+
+getdata.php (original):
+<?php
+$result = $connection->query("select * from pet");
+while ($row = $result->fetch()) {
+	var_dump($row);
+        echo "<br>";
+}
+?>

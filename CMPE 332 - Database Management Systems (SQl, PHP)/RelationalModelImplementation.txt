@@ -1,0 +1,174 @@
+drop database if exists restaurantDB;
+create database restaurantDB;
+
+CREATE TABLE Restaurant(
+	Name			VARCHAR(30)	PRIMARY KEY,
+	URL			VARCHAR(100)	NOT NULL,
+	/*Address:*/
+	Street			VARCHAR(30)	NOT NULL,
+	City			VARCHAR(30)	NOT NULL,
+	Zip			CHAR(6)		NOT NULL
+);
+
+CREATE TABLE Orders(
+	OrderID			VARCHAR(10)	PRIMARY KEY,
+	TotalPrice		VARCHAR(10)	NOT NULL,
+	Tip			VARCHAR(10)	NOT NULL,
+	TimePlaced		DATETIME	NOT NULL,	
+	CustomerEmail		VARCHAR(40)	NOT NULL,
+	RestaurantName		VARCHAR(30) 	NOT NULL,
+	DeliveryEmployeeID	INTEGER(10), /*Some Orders might not have to be delivered*/
+	TimeDelivered		DATETIME,
+	FOREIGN KEY (CustomerEmail) REFERENCES CustomerAcct(EmailAddress),
+	FOREIGN KEY (RestaurantName) REFERENCES Restaurant(Name),
+	FOREIGN KEY (DeliveryEmployeeID) REFERENCES employee(EmployeeID) ON DELETE CASCADE
+);
+
+CREATE TABLE Food(
+	Name			VARCHAR(50)	PRIMARY KEY
+);
+
+/*=====Employee Stuff:=====*/
+
+CREATE TABLE Employee(
+	EmployeeID		INTEGER(10)	PRIMARY KEY,
+	EmailAddress		VARCHAR(40)	NOT NULL,
+	FirstName		VARCHAR(20)	NOT NULL,
+	LastName		VARCHAR(20)	NOT NULL,
+	RestaurantName 		VARCHAR(30)	NOT NULL,
+	FOREIGN KEY (RestaurantName) REFERENCES Restaurant(Name) ON DELETE CASCADE
+);
+
+CREATE TABLE Shift(
+	Day			DATE		NOT NULL,
+	Start			DATETIME	NOT NULL,
+	End			DATETIME	NOT NULL,
+	EmployeeID		INTEGER(10)	NOT NULL,
+	PRIMARY KEY (Day, EmployeeID),
+	FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID) ON DELETE CASCADE
+);
+
+/*=====Employee Sub-Classes:=====*/
+CREATE TABLE Manager(
+	EmployeeID		INTEGER(10)	PRIMARY KEY,
+	FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID) ON DELETE CASCADE
+);
+
+CREATE TABLE Servers( 
+	EmployeeID		INTEGER(10)	PRIMARY KEY,
+	FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID) ON DELETE CASCADE
+);
+
+CREATE TABLE DeliveryEmployee(
+	EmployeeID		INTEGER(10)	PRIMARY KEY,
+	FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID) ON DELETE CASCADE
+);
+
+CREATE TABLE Chef(
+	EmployeeID		INTEGER(10)	PRIMARY KEY,
+	FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID) ON DELETE CASCADE
+);
+
+CREATE TABLE Credentials(
+	EmployeeID		INTEGER(10)	NOT NULL,
+	Credentials		VARCHAR(100)	NOT NULL,
+	PRIMARY KEY (EmployeeID, Credentials),
+	FOREIGN KEY (EmployeeID) REFERENCES Chef(EmployeeID) ON DELETE CASCADE
+);
+
+/*=====Customer Stuff:=====*/
+
+CREATE TABLE CustomerAcct(
+	EmailAddress		VARCHAR(40)	PRIMARY KEY,
+
+	/*Name:*/
+	FirstName		VARCHAR(20)	NOT NULL,
+	LastName		VARCHAR(20)	NOT NULL,
+
+	CellNumber		INTEGER(10)	NOT NULL,
+
+	/*Delivery Address:*/
+	Street			VARCHAR(30)	NOT NULL,
+	City			VARCHAR(30)	NOT NULL,
+	Zip			CHAR(6)		NOT NULL,
+
+	CreditAmount		VARCHAR(10)	NOT NULL
+
+);
+
+CREATE TABLE Payment(
+	DatePayed		DATE		NOT NULL,
+	PaymentAmount		VARCHAR(10)	NOT NULL,	
+	EmailAddress		VARCHAR(40)	NOT NULL,
+	PRIMARY KEY (DatePayed, EmailAddress),
+	FOREIGN KEY (EmailAddress) REFERENCES CustomerAcct(EmailAddress) ON DELETE CASCADE
+);
+
+/*=====Multiple-Entity Relations:=====*/
+
+CREATE TABLE RelatedTo(
+	RelationshipType 	VARCHAR(100)		NOT NULL,
+	EmailAddress		VARCHAR(40)		NOT NULL,
+	EmployeeID		INTEGER(10)		NOT NULL,
+	PRIMARY KEY (EmployeeID, EmailAddress),
+	FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID),
+	FOREIGN KEY (EmailAddress) REFERENCES CustomerAcct(EmailAddress) ON DELETE CASCADE 
+);
+
+CREATE TABLE OffersOnMenu(
+	Price				VARCHAR(10)		NOT NULL,
+	FoodName			VARCHAR(50)		NOT NULL,
+	RestaurantName			VARCHAR(30) 		NOT NULL,
+	PRIMARY KEY (RestaurantName, FoodName),
+	FOREIGN KEY (FoodName) REFERENCES Food(Name),
+	FOREIGN KEY (RestaurantName) REFERENCES Restaurant(Name) ON DELETE CASCADE
+);
+
+CREATE TABLE Contains(
+	FoodName	VARCHAR(50)	NOT NULL,	
+	OrderID		VARCHAR(10)	NOT NULL,
+	PRIMARY KEY (OrderID, FoodName),
+	FOREIGN KEY (FoodName) REFERENCES Food(Name),
+	FOREIGN KEY (OrderID) REFERENCES Orders(OrderID) ON DELETE CASCADE
+);
+
+/*=====Adding Data====*/
+INSERT INTO Restaurant VALUES
+	('TimHortons', 'https://timhortons.ca', 'Old Street', 'Kingston', 'LOL010'),
+	('McDonalds', 'https://www.mcdonalds.com/ca/en-ca.html','Highway 20','Fonthill', 'L0S1E8'),
+	('Starbucks', 'https://www.starbs.ca/ca/en', 'Younge Street', 'Toronto', 'L7L345'),
+	('Burger King', 'https://www.burgerking.com/ca/en-ca.html','Welland Road','Fonthill', 'L0S1E6'),
+	('Location 21', 'https://www.location21.queensu.ca','Albert Strret','Kingston', 'K7L3E8');
+INSERT INTO Employee VALUES
+	('1234567890', 'poopoo@gmail.com', 'John', 'Doe', 'McDonalds'),
+	('0987654321', 'thort@outlook.com', 'Tim', 'Horton', 'TimHortons'),
+	('1234509876', 'dshkdfhksjd@gmail.com', 'vim', 'patel', 'Starbucks'),
+	('5432167890', 'blahblah@hotmail.com', 'hello', 'goodbye','Burger King'),
+	('4839205678', 'karenrutenburg@memo.com','Eric', 'Brazeau','Location 21');
+INSERT INTO CustomerAcct VALUES
+	('jiblets@gmail.com', 'Jim', 'Bilten', '7896543213', 'Niblet Street', 'Nobs', 'NEPO01', '0.00'),
+	('miffles@outlook.com', 'Michael', 'Scott', '2345768904', 'Dunder Mifflin', 'bellend', '234LOL', '100.00'),
+	('drewpeacock@momomom.potatos', 'Potato', 'Jim', '1524364793', 'The Field', 'Circle Town', '3KL278', '0.01'),
+	('sdfsdfsdfsdf@sdfsdfsdf.com', 'asdasd', 'asdasd', '1232344543', 'asdasdasdada','sdfsfsfsfd', '537OP1', '1000000.00'),
+	('ponzi@scheme.com', 'Bets', 'Boy', '7364723652', 'Fan', 'Duel', 'H3LL0S', '-121223.00');
+INSERT INTO Food VALUES
+	('Burger'),
+	('Fries'),
+	('Hot Dog'),
+	('Pizza'),
+	('Ice Cream'),
+	('Grilled Cheese');
+INSERT INTO Shift VALUES
+	('Monday', '3:00', '7:00', '9998877777'),
+	('Tuesday', '11:00', '7:00', '9998877777'),
+	('Wednesday', '11:00', '7:00', '9998877777'),
+	('Thursday', '3:00', '11:00', '9998877777'),
+	('Wednesday', '2:00', '10:00', '9876543210'),
+	('Thursday', '12:00', '8:00', '9876543210');
+INSERT INTO Payment VALUES
+	('2023-02-04', '24.00', 'ahmad.jabbar@gmail.com'),
+	('2023-01-13', '50.00', 'james.borg@gmail.com'),
+	('2023-02-07', '16.00', 'schmoog.boog@gmail.com'),
+	('2023-02-03', '30.00', 'big.nathan@gmail.com'),
+	('2023-01-22', '150.00', 'osmows.shawarma@gmail.com'),
+	('2023-02-09', '76.00', 'bumble.brutus@gmail.com');

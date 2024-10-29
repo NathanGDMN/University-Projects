@@ -1,0 +1,58 @@
+#wrapper {
+  width: 800px;
+  margin: 0 auto;
+  min-height: 100%;
+  box-shadow: 0 0 50px #000;
+}
+.landing {
+  background-image: url(https://cdn5.vectorstock.com/i/1000x1000/17/89/seamless-restaurant-pattern-vector-3321789.jpg);
+  background-repeat: repeat;
+  height: 250px;
+  filter: brghtness(100%);
+}
+.landing h1 {
+  text-align: center;
+  color: #64403E;
+  padding-top: 45px;
+  Font-size: 80px;
+}
+
+
+
+body{
+	background-color: #FEFFED;
+}
+
+#nav ul {
+  list-style-type: none;
+  letter-spacing: 2px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #64403E;
+  position: -webkit-sticky; /*Allows navigation bar to stay on Screen even when you scroll down*/
+  position: sticky;
+  top: 0;
+}
+#nav li {
+  float: left;
+}
+#nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+#nav li a:hover:not(.active) {
+  background-color: #111;
+}
+#nav li:first-child {
+  border-right: 1px solid #bbb; /*Places divider to the right of the home button*/
+}
+
+table, th, td {
+	border : 1px, solid;
+	border-color: black;
+	padding: 10px;
+}	

@@ -1,0 +1,230 @@
+drop database if exists restaurantdb;
+create database restaurantdb;
+use restaurantdb;
+
+create table customerAccount(
+    emailAddress varchar(100),
+    firstName varchar(100),
+    lastName varchar(100),
+    cellNum char(10),
+    streetAddress varchar(100),
+    city varchar(100),
+    pc char(6),
+    creditAmt decimal(6, 2),
+    primary key (emailAddress));
+
+create table foodOrder(
+	orderID integer,
+	totalPrice decimal(6,2),
+	tip decimal(6, 2),
+	primary key (orderID));
+
+create table food (
+	name varchar(100),
+	primary key (name));
+
+create table restaurant(
+	name varchar(100),
+	streetAddress varchar(100),
+	city varchar(100),
+	pc char(6),
+	url varchar(200),
+	primary key (name));
+
+create table employee(
+	ID integer,
+	firstName varchar(100),
+	lastName varchar(100),
+	emailAddress varchar(100),
+      	restaurantName varchar(100),
+	primary key (ID),
+      	foreign key(restaurantName) references restaurant(name));
+
+create table manager(
+	empid integer primary key,
+	foreign key (empid) references employee(ID) on delete cascade);
+
+create table serverStaff(
+	empid integer primary key,
+	foreign key (empid) references employee(ID) on delete cascade);
+
+create table chef(
+	empid integer primary key,
+	foreign key (empid) references employee(ID) on delete cascade);
+
+create table deliveryPerson(
+	empid integer primary key,
+	foreign key (empid) references employee(ID) on delete cascade);
+
+create table payment(
+	customerEmail varchar(100),
+	date date not null,
+	paymentAmount decimal(6,2) not null,
+	primary key (customerEmail, date),
+	foreign key (customerEmail) references customerAccount(emailAddress) on delete cascade);
+
+create table shift(
+	empID integer not null,
+	day varchar(15) not null,
+	startTime time not null,
+	endTime time not null,
+	primary key (empID, day),
+	foreign key (empID) references employee(ID) on delete cascade);
+
+create table chefCredentials (
+	empID integer not null,
+	cred varchar(30),
+	primary key (empID, cred),
+	foreign key (empID) references employee(ID) on delete cascade);
+
+create table orderPlacement(
+	customerEmail varchar(100) not null,
+	orderID integer not null,
+	restaurant varchar(100) not null,
+	orderTime time,
+	orderDate date,
+	primary key (customerEmail, orderID, restaurant),
+	foreign key (customerEmail) references customerAccount(emailAddress) on delete cascade,
+	foreign key (orderID) references foodOrder(orderID) on delete cascade,
+	foreign key (restaurant) references restaurant(name) on delete cascade);
+
+create table relatedTo(
+	customer varchar(100) not null,
+	employee integer not null,
+	relationship varchar(100),
+	primary key (customer, employee),
+	foreign key (customer) references customerAccount(emailAddress) on delete cascade,
+	foreign key (employee) references employee(ID) on delete cascade);
+
+create table menu(
+	restaurant varchar(100) not null,
+	food varchar(100) not null,
+	price decimal(6, 2),
+	primary key (restaurant, food),
+	foreign key (restaurant) references restaurant(name) on delete cascade,
+	foreign key (food) references food (name) on delete cascade);
+
+create table foodItemsinOrder(
+	orderID integer not null,
+	food varchar(100) not null,
+	primary key (orderID, food),
+	foreign key (orderID) references foodOrder(orderID) on delete cascade,
+	foreign key (food) references food(name) on delete cascade);
+
+create table delivery(
+	orderID integer not null,
+	deliveryPerson integer not null,
+	deliveryTime time,
+	primary key (orderID, deliveryPerson),
+	foreign key (orderID) references foodOrder(orderID) on delete cascade,
+	foreign key (deliveryPerson) references employee(id) on delete cascade);
+
+create table worksAt(
+	employeeID integer not null,
+	restaurant varchar(100) not null,
+	primary key (employeeID, restaurant),
+	foreign key (employeeID) references employee(ID) on delete cascade,
+	foreign key (restaurant) references restaurant(name) on delete cascade);
+
+
+INSERT INTO Restaurant VALUES
+('McDonalds', '10 Highway 20', 'Fonthill', 'L0S1E8', 'https://www.mcdonalds.com/ca/en-ca.html'),
+('The Burger Palace','100 Port Robinson Road','Fonthill', 'L0S1E3', 'https://www.theburgerpalace.com/ca.html'),
+('Massimos Pizzeria','35 Highway 20','Fonthill', 'L0S1E9', 'https://www.massimospizzeria.com/ca/en-ca.html'),
+('Harveys','12 Haist Street','Fonthill', 'L0S1E4', 'https://www.harveys.com/ca/en-ca.html'),
+('Burger King','1072 Welland Road','Fonthill', 'L0S1E6', 'https://www.burgerking.com/ca/en-ca.html'),
+('Location 21','13253 Edward Avenue','Fonthill', 'L0S1E7', 'https://www.location21.com/ca/');
+
+
+INSERT INTO Employee VALUES
+('101', 'John', 'Smith', 'john.smith@gmail.com', 'The Burger Palace'),
+('102', 'Franklin', 'Wong', 'franklin.wong@gmail.com', 'Massimos Pizzeria'),
+('134', 'Alicia','Zelaya', 'alicia.zelaya@gmail.com', 'McDonalds'),
+('441', 'Jennifer', 'Wallace', 'jennifer.wallace@gmail.com', 'Harveys'),
+('230', 'Ramesh', 'Narayan', 'ramesh.narayan@gmail.com', 'Burger King'),
+('10', 'Joyce', 'English', 'joyce.english@hotmail.com', 'Location 21');
+
+INSERT INTO manager VALUES
+('102');
+
+INSERT INTO serverStaff VALUES
+('441'),
+('134');
+
+INSERT INTO chef VALUES
+('10');
+
+INSERT INTO deliveryPerson VALUES
+('101'),
+('230');
+
+INSERT INTO foodOrder VALUES
+('12', '20.00', '5'),
+('122', '40.00', '5'),
+('16', '21.34', '3'),
+('18', '10.65', '2'),
+('46', '320.50', '40'),
+('71', '120.00', '20');
+
+INSERT INTO delivery VALUES
+('12', '101', '14:00'),
+('122', '101', '17:00'),
+('16', '101', '07:00'),
+('18', '230', '16:00'),
+('46', '230', '12:30'),
+('71', '230', '00:45');
+
+INSERT INTO CustomerAccount VALUES
+('ahmad.jabbar@gmail.com', 'Ahmad', 'Jabbar', '9058921134', '14 Bacon Lane', 'Fonthill', 'L0S1E0', '13.00'),
+('james.borg@gmail.com', 'James', 'Borg', '9058922342', '88 Pork Lane', 'Fonthill', 'L0S1E6', '20.00'),
+('schmoog.boog@gmail.com', 'Schmoog', 'Boog', '9056478888', '122 Ham Road', 'Fonthill', 'L0S1A9', '112.00'),
+('big.nathan@gmail.com', 'Big', 'Nathan', '9058921282', '31 Small Avenue', 'Fonthill', 'L0S2E7', '22.00'),
+('osmows.shawarma@gmail.com', 'Osmows', 'Shawarma', '9058924488', '333 Chicken Road', 'Fonthill', 'L0S1A6', '1431.00'),
+('bumble.brutus@gmail.com', 'Bumble', 'Brutus', '9058926754', '656 Forest Road', 'Choomah Island', 'L0S1E4', '120.00');
+
+
+INSERT INTO Orderplacement VALUES
+('ahmad.jabbar@gmail.com', '12', 'McDonalds', '14:30', '2023-04-01'),
+('schmoog.boog@gmail.com', '122', 'Massimos Pizzeria', '16:30', '2023-03-15'),
+('osmows.shawarma@gmail.com', '46', 'Burger King', '11:30', '2023-04-02'),
+('bumble.brutus@gmail.com', '71', 'Location 21', '00:30', '2023-03-29'),
+('james.borg@gmail.com', '16', 'Harveys', '06:30', '2023-04-01'),
+('big.nathan@gmail.com', '18', 'The Burger Palace', '15:30', '2023-03-16');
+
+
+INSERT INTO Food VALUES
+('Burger'),
+('Fries'),
+('Hot Dog'),
+('Pizza'),
+('Ice Cream'),
+('Grilled Cheese');
+
+INSERT INTO fooditemsinorder VALUES
+('12', 'Burger'),
+('12', 'Fries'),
+('12', 'Grilled Cheese'),
+('122', 'Burger'),
+('16', 'Burger'),
+('18', 'Burger'),
+('46', 'Pizza'),
+('46', 'Ice Cream'),
+('46', 'Hot Dog'),
+('46', 'Burger');
+
+INSERT INTO Shift VALUES
+('101', 'Monday', '3:00', '7:00'),
+('101', 'Tuesday', '11:00', '7:00'),
+('101', 'Wednesday', '11:00', '7:00'),
+('101', 'Thursday', '3:00', '11:00'),
+('10', 'Wednesday', '2:00', '10:00'),
+('10', 'Thursday', '12:00', '8:00');
+
+INSERT INTO Payment VALUES
+('ahmad.jabbar@gmail.com', '2023-02-04', '24.00'),
+('james.borg@gmail.com', '2023-01-13', '50.00'),
+('schmoog.boog@gmail.com', '2023-02-07', '16.00'),
+('big.nathan@gmail.com', '2023-02-03', '30.00'),
+('osmows.shawarma@gmail.com', '2023-01-22', '150.00'),
+('bumble.brutus@gmail.com', '2023-02-09', '76.00');
+

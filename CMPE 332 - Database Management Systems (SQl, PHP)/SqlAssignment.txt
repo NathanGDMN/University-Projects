@@ -1,0 +1,55 @@
+-- Question 1:
+SELECT FName, LName, SSN FROM employee WHERE Salary = (SELECT min(Salary) FROM employee);
+
+-- Question 2:
+SELECT * FROM (
+	(SELECT Fname, Lname FROM dependent LEFT JOIN employee ON dependent.ESSN = employee.SSN WHERE Relationship = 'Spouse')S
+		NATURAL JOIN
+	(SELECT Fname, Lname FROM dependent LEFT JOIN employee ON dependent.ESSN = employee.SSN WHERE Relationship = 'Daughter')D
+);
+
+-- Question 3:
+SELECT Fname, Lname, Pname FROM 
+	employee JOIN works_on JOIN project ON employee.ssn = works_on.essn and works_on.pno = project.pnumber
+WHERE Lname = 'Wong' or Lname = 'Borg' or Lname = 'English';
+
+-- Question 4
+SELECT Fname, Lname, SSN, Salary FROM
+	department LEFT JOIN employee ON department.MGRSSN = employee.SSN
+WHERE SEX = 'M' AND Salary > 30000;
+
+-- Question 5
+SELECT * FROM (
+	(SELECT Pname, PNo FROM 
+		employee JOIN works_on JOIN project ON employee.ssn = works_on.essn and works_on.pno = project.pnumber
+	WHERE Lname = 'Narayan')N
+    NATURAL JOIN
+    (SELECT Pname, PNo FROM 
+		employee JOIN works_on JOIN project ON employee.ssn = works_on.essn and works_on.pno = project.pnumber
+	WHERE Lname = 'Jabbar')J);
+
+-- Question 6
+SELECT Fname, Lname, TIMESTAMPDIFF(year, dependent.Bdate, now()) FROM 
+	dependent LEFT JOIN employee ON dependent.ESSN = employee.SSN 
+WHERE year(dependent.Bdate) > 1970;
+
+-- Question 7
+SELECT Fname, Lname, Pname, Hours FROM 
+	project JOIN works_on JOIN employee ON project.PNumber = works_on.PNo AND works_on.ESSN = employee.SSN 
+WHERE Plocation = 'Houston'; 
+
+-- Question 8
+SELECT Fname, Lname, SuperFname, SuperLname FROM
+	(SELECT Fname, Lname, SuperSSN FROM employee)E 
+   	LEFT JOIN
+    	(SELECT fname AS superfname, lname AS superlname, ssn FROM employee)S
+	ON E.superssn = S.ssn;
+
+-- Question 9
+SELECT Pname, Fname AS ManagerFname, Lname AS ManagerLname, Plocation FROM 
+	project JOIN department JOIN employee
+	ON project.Dnum = department.Dnumber and department.MGRSSN = employee.SSN;
+
+-- Question 10
+SELECT Fname, Lname FROM employee JOIN department ON employee.SSN = department.MGRSSN
+WHERE Salary = (SELECT MAX(Salary) FROM Employee JOIN department ON employee.SSN = department.MGRSSN);
