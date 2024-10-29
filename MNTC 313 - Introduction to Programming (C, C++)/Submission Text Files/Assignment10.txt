@@ -1,0 +1,47 @@
+%Get data
+data = dlmread('goldDataA.txt','\t');
+
+%Calculate mass of elements
+for i=1:1:10
+    sample(i).id = i;
+    sample(i).goldMass = data(i,5)*sampleMass(data,i);
+    sample(i).sulfurMass = data(i,6)*sampleMass(data,i);
+    sample(i).arsenicMass = data(i,7)*sampleMass(data,i);
+end
+
+%Determine if each sample is economically viable
+for l=1:1:10
+   if data(l,5)>1 && data(l,6)<5 && data(l,7)<1
+       sample(l).viable = 'Y'
+   else
+       sample(l).viable = 'N'
+   end
+end
+
+%Order samples from highest to lowest based off of gold mass
+for j=1:1:10
+    maxGoldMass = sample(j).goldMass;
+    maxGoldMassIndex = j;
+    for k=j+1:1:10
+        if sample(k).goldMass > maxGoldMass
+            maxGoldMass = sample(k).goldMass
+            maxGoldMassIndex = k;
+        end
+    end
+    temp = sample(j);
+    sample(j) = sample(maxGoldMassIndex);
+    sample(maxGoldMassIndex) = temp;
+end
+
+%Output
+for m=1:1:10
+    disp(sprintf('%d, %.2f, %.2f, %.2f, %c',sample(m).id,sample(m).goldMass,sample(m).sulfurMass,sample(m).arsenicMass,sample(m).viable));
+end
+disp(sprintf('Max Mass: %f g at ID %d',sample(1).goldMass,sample(1).id));
+
+%Functions
+function mass = sampleMass(samples,index)
+    sampleCrossSection = pi*(samples(index,3)^2);
+    sampleVolume = samples(index,2)*sampleCrossSection;
+    mass = samples(index,4)*sampleVolume;
+end

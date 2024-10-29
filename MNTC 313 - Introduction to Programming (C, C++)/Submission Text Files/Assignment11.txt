@@ -1,0 +1,37 @@
+%%MNTC313 A11 Starter Code%%
+
+%%Please DO NOT change the user input format
+%%It has been formatted to work properly with the Octave Engine
+
+clc
+
+a = input('Enter a:');
+fprintf('\n');
+b = input('Enter b:');
+fprintf('\n');
+
+f = @(x) 1.8.^(0.045.*x)-1;
+
+trueIntegral = quadgk(f,a,b);
+
+disp(sprintf('True value: %.0f N', trueIntegral));
+
+for i=1:1:5
+   rectangleIntegral = rectangleIntegrate(a, b, (10^i));
+   error = abs((rectangleIntegral - trueIntegral)/trueIntegral)*100;
+   disp(sprintf('N = %d, F = %.0f, Error %% = %0.2f',(10^i), rectangleIntegral, error));
+end
+
+%Pressure acting up on top 50m of building
+force = rectangleIntegrate(450, 500, 10000) / 1000; %in kPa
+pressure = force / 50^2;
+
+disp(sprintf('Average pressure between 450 and 500 m: %.1f kPa',pressure));
+
+
+function integral = rectangleIntegrate(A, B, numberOfRectangles)
+    dx = (B - A)/numberOfRectangles;
+    xSet = linspace(A, B, numberOfRectangles);
+    fSet = 1.8.^(0.045*(xSet))-1;
+    integral = sum(fSet*dx);
+end

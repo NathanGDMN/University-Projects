@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Workspace Name="MNTC313" Database="" Version="10.0.0">
+  <VirtualDirectory Name="Assignments">
+    <Project Name="Assignment_2" Path="Assignment_2/Assignment_2.project" Active="No"/>
+    <Project Name="Assignment_3" Path="Assignment_3/Assignment_3.project" Active="No"/>
+    <Project Name="Assignment_4" Path="Assignment_4/Assignment_4.project" Active="No"/>
+    <Project Name="Assignment_5" Path="Assignment_5/Assignment_5.project" Active="No"/>
+    <Project Name="Assignment_6" Path="Assignment_6/Assignment_6.project" Active="No"/>
+    <Project Name="Assignment_7" Path="Assignment_7/Assignment_7.project" Active="No"/>
+    <Project Name="Assignment_8" Path="Assignment_8/Assignment_8.project" Active="No"/>
+    <Project Name="Assignment_9" Path="Assignment_9/Assignment_9.project" Active="No"/>
+  </VirtualDirectory>
+  <Project Name="Test" Path="Test/Test.project" Active="Yes"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Debug" Selected="yes">
+      <Environment/>
+      <Project Name="Assignment_2" ConfigName="Debug"/>
+      <Project Name="Assignment_3" ConfigName="Debug"/>
+      <Project Name="Assignment_4" ConfigName="Debug"/>
+      <Project Name="Assignment_5" ConfigName="Debug"/>
+      <Project Name="Assignment_6" ConfigName="Debug"/>
+      <Project Name="Assignment_7" ConfigName="Debug"/>
+      <Project Name="Assignment_8" ConfigName="Debug"/>
+      <Project Name="Assignment_9" ConfigName="Debug"/>
+      <Project Name="Test" ConfigName="Debug"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Environment/>
+      <Project Name="Assignment_2" ConfigName="Release"/>
+      <Project Name="Assignment_3" ConfigName="Release"/>
+      <Project Name="Assignment_4" ConfigName="Release"/>
+      <Project Name="Assignment_5" ConfigName="Release"/>
+      <Project Name="Assignment_6" ConfigName="Release"/>
+      <Project Name="Assignment_7" ConfigName="Release"/>
+      <Project Name="Assignment_8" ConfigName="Release"/>
+      <Project Name="Assignment_9" ConfigName="Release"/>
+      <Project Name="Test" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>

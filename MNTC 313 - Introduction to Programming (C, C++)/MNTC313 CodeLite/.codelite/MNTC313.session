@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Session Name="C:\Users\User\Desktop\MNTC313\MNTC313.workspace">
+  <int Value="7" Name="m_selectedTab"/>
+  <wxString Value="C:\Users\User\Desktop\MNTC313\MNTC313.workspace" Name="m_workspaceName"/>
+  <TabInfoArray Name="TabInfoArray">
+    <TabInfo>
+      <wxString Value="C:\Users\User\Desktop\MNTC313\Assignment_4\Assign_4.cpp" Name="FileName"/>
+      <int Value="42" Name="FirstVisibleLine"/>
+      <int Value="79" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\User\Desktop\MNTC313\Assignment_3\Assign_3.cpp" Name="FileName"/>
+      <int Value="3" Name="FirstVisibleLine"/>
+      <int Value="76" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\User\Desktop\MNTC313\Assignment_2\Assign_2.cpp" Name="FileName"/>
+      <int Value="25" Name="FirstVisibleLine"/>
+      <int Value="16" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\User\Desktop\MNTC313\Assignment_5\Assign_5.cpp" Name="FileName"/>
+      <int Value="103" Name="FirstVisibleLine"/>
+      <int Value="104" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\User\Desktop\MNTC313\Assignment_7\Assign_7.cpp" Name="FileName"/>
+      <int Value="12" Name="FirstVisibleLine"/>
+      <int Value="43" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\User\Desktop\MNTC313\Assignment_8\Assign_8.cpp" Name="FileName"/>
+      <int Value="39" Name="FirstVisibleLine"/>
+      <int Value="6" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\User\Desktop\MNTC313\Assignment_9\Assign_9.cpp" Name="FileName"/>
+      <int Value="120" Name="FirstVisibleLine"/>
+      <int Value="132" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\User\Desktop\MNTC313\Test\main.cpp" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="1" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+  </TabInfoArray>
+  <SerializedObject Name="m_breakpoints">
+    <long Value="0" Name="Count"/>
+  </SerializedObject>
+  <wxString Value="*.c;*.cpp;*.cxx;*.cc;*.h;*.hpp;*.inc;*.mm;*.m;*.xrc;*.plist;*.txt" Name="m_findInFilesMask"/>
+</Session>

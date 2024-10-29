@@ -1,0 +1,37 @@
+[{
+  "file": "C:\\Users\\User\\Desktop\\MNTC313\\Test\\main.cpp",
+  "directory": "C:\\Users\\User\\Desktop\\MNTC313\\Test",
+  "command": "clang  -c C:\\Users\\User\\Desktop\\MNTC313\\Test\\main.cpp -o C:\\Users\\User\\Desktop\\MNTC313\\Test\\main.cpp.o -target x86_64-pc-windows-gnu -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++ -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++\\mingw32 -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++\\backward -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include -Ic:\\MinGW\\include -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include-fixed -I. -I.  -g  -O0  -Wall"
+ }, {
+  "file": "C:\\Users\\User\\Desktop\\MNTC313\\Assignment_9\\Assign_9.cpp",
+  "directory": "C:\\Users\\User\\Desktop\\MNTC313\\Assignment_9",
+  "command": "clang  -c C:\\Users\\User\\Desktop\\MNTC313\\Assignment_9\\Assign_9.cpp -o C:\\Users\\User\\Desktop\\MNTC313\\Assignment_9\\Assign_9.cpp.o -target x86_64-pc-windows-gnu -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++ -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++\\mingw32 -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++\\backward -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include -Ic:\\MinGW\\include -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include-fixed -I. -I.  -g  -O0  -Wall"
+ }, {
+  "file": "C:\\Users\\User\\Desktop\\MNTC313\\Assignment_8\\Assign_8.cpp",
+  "directory": "C:\\Users\\User\\Desktop\\MNTC313\\Assignment_8",
+  "command": "clang  -c C:\\Users\\User\\Desktop\\MNTC313\\Assignment_8\\Assign_8.cpp -o C:\\Users\\User\\Desktop\\MNTC313\\Assignment_8\\Assign_8.cpp.o -target x86_64-pc-windows-gnu -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++ -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++\\mingw32 -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++\\backward -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include -Ic:\\MinGW\\include -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include-fixed -I. -I.  -g  -O0  -Wall"
+ }, {
+  "file": "C:\\Users\\User\\Desktop\\MNTC313\\Assignment_3\\Assign_3.cpp",
+  "directory": "C:\\Users\\User\\Desktop\\MNTC313\\Assignment_3",
+  "command": "clang  -c C:\\Users\\User\\Desktop\\MNTC313\\Assignment_3\\Assign_3.cpp -o C:\\Users\\User\\Desktop\\MNTC313\\Assignment_3\\Assign_3.cpp.o -target x86_64-pc-windows-gnu -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++ -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++\\mingw32 -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++\\backward -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include -Ic:\\MinGW\\include -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include-fixed -I. -I.  -g  -O0  -Wall"
+ }, {
+  "file": "C:\\Users\\User\\Desktop\\MNTC313\\Assignment_4\\Assign_4.cpp",
+  "directory": "C:\\Users\\User\\Desktop\\MNTC313\\Assignment_4",
+  "command": "clang  -c C:\\Users\\User\\Desktop\\MNTC313\\Assignment_4\\Assign_4.cpp -o C:\\Users\\User\\Desktop\\MNTC313\\Assignment_4\\Assign_4.cpp.o -target x86_64-pc-windows-gnu -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++ -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++\\mingw32 -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++\\backward -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include -Ic:\\MinGW\\include -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include-fixed -I. -I.  -g  -O0  -Wall"
+ }, {
+  "file": "C:\\Users\\User\\Desktop\\MNTC313\\Assignment_2\\Assign_2.cpp",
+  "directory": "C:\\Users\\User\\Desktop\\MNTC313\\Assignment_2",
+  "command": "clang  -c C:\\Users\\User\\Desktop\\MNTC313\\Assignment_2\\Assign_2.cpp -o C:\\Users\\User\\Desktop\\MNTC313\\Assignment_2\\Assign_2.cpp.o -target x86_64-pc-windows-gnu -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++ -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++\\mingw32 -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++\\backward -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include -Ic:\\MinGW\\include -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include-fixed -I. -I.  -g  -O0  -Wall"
+ }, {
+  "file": "C:\\Users\\User\\Desktop\\MNTC313\\Assignment_5\\Assign_5.cpp",
+  "directory": "C:\\Users\\User\\Desktop\\MNTC313\\Assignment_5",
+  "command": "clang  -c C:\\Users\\User\\Desktop\\MNTC313\\Assignment_5\\Assign_5.cpp -o C:\\Users\\User\\Desktop\\MNTC313\\Assignment_5\\Assign_5.cpp.o -target x86_64-pc-windows-gnu -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++ -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++\\mingw32 -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++\\backward -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include -Ic:\\MinGW\\include -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include-fixed -I. -I.  -g  -O0  -Wall"
+ }, {
+  "file": "C:\\Users\\User\\Desktop\\MNTC313\\Assignment_6\\Assign_6.cpp",
+  "directory": "C:\\Users\\User\\Desktop\\MNTC313\\Assignment_6",
+  "command": "clang  -c C:\\Users\\User\\Desktop\\MNTC313\\Assignment_6\\Assign_6.cpp -o C:\\Users\\User\\Desktop\\MNTC313\\Assignment_6\\Assign_6.cpp.o -target x86_64-pc-windows-gnu -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++ -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++\\mingw32 -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++\\backward -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include -Ic:\\MinGW\\include -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include-fixed -I. -I.  -g  -O0  -Wall"
+ }, {
+  "file": "C:\\Users\\User\\Desktop\\MNTC313\\Assignment_7\\Assign_7.cpp",
+  "directory": "C:\\Users\\User\\Desktop\\MNTC313\\Assignment_7",
+  "command": "clang  -c C:\\Users\\User\\Desktop\\MNTC313\\Assignment_7\\Assign_7.cpp -o C:\\Users\\User\\Desktop\\MNTC313\\Assignment_7\\Assign_7.cpp.o -target x86_64-pc-windows-gnu -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++ -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++\\mingw32 -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++\\backward -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include -Ic:\\MinGW\\include -Ic:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include-fixed -I. -I.  -g  -O0  -Wall"
+ }]
